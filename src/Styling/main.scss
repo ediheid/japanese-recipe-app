@@ -1,0 +1,16 @@
+// mobile version
+
+.circle-with-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: lightgrey;
+  border-radius: 50%;
+
+  .circle-text {
+    width: 80%;
+    text-align: center;
+  }
+}

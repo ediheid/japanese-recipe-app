@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Styling/App.scss";
 import Recipe from "./Recipe";
 import Main from "./Main";
+import Header from "./Header";
 
 const App = () => {
   const APP_ID = "aa176644";
@@ -14,6 +15,7 @@ const App = () => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    console.log(recipes.length);
     getRecipes();
   }, [query]);
 
@@ -41,7 +43,7 @@ const App = () => {
   return (
     <div className="App">
       {/* Form.. */}
-
+      <Header />
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
@@ -52,12 +54,10 @@ const App = () => {
           Search
         </button>
       </form>
-
       <Main currentRecipes={recipes} />
-
       {/* Recipes.. */}
-      {/* 
-      {recipes.map((recipe) => (
+
+      {/* {recipes.map((recipe) => (
         <Recipe
           key={recipe.recipe.label}
           title={recipe.recipe.label}

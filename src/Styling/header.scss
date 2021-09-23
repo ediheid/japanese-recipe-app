@@ -1,0 +1,19 @@
+// mobile version
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+
+  .heading {
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 40px 0 0 20px;
+  }
+
+  .sub-heading {
+    font-weight: 100;
+    letter-spacing: 5px;
+    padding: 10px 0 20px 50px;
+  }
+}
