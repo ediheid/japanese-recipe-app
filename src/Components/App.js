@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Styling/App.scss";
-import Recipe from "./Recipe";
+
 import Main from "./Main";
 import Header from "./Header";
 import Form from "./Form";
@@ -41,6 +41,20 @@ const App = () => {
     setQuery(search);
     setSearch("");
   };
+
+  // const clickSeeAllRecipes = (event) => {
+  //   getRecipes(event.target);
+  //   recipes.map((recipe) => (
+  //     <Recipe
+  //       key={recipe.recipe.label}
+  //       title={recipe.recipe.label}
+  //       time={recipe.recipe.totalTime}
+  //       image={recipe.recipe.image}
+  //       ingredients={recipe.recipe.ingredients}
+  //     />
+  //   ));
+  // };
+  // console.log(clickSeeAllRecipes);
 
   return (
     <div className="App">

@@ -34,14 +34,6 @@ const Main = (props) => {
         <div className="circle-with-text">
           <div className="circle-text">Your food portal to Japan!</div>
         </div>
-
-        {/* <div className="circle-with-text-right">
-          <div>Don't know what you are looking for?</div>
-          <div className="button-box">
-            <button>See all recipes</button>
-            <button>Feeling Lucky?</button>
-          </div>
-        </div> */}
       </div>
     );
   }
