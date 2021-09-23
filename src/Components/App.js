@@ -3,6 +3,7 @@ import "../Styling/App.scss";
 import Recipe from "./Recipe";
 import Main from "./Main";
 import Header from "./Header";
+import Form from "./Form";
 
 const App = () => {
   const APP_ID = "aa176644";
@@ -20,8 +21,9 @@ const App = () => {
   }, [query]);
 
   const getRecipes = async () => {
+    let newQuery = query + "&to=100";
     const response = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
     setRecipes(data.hits);
@@ -31,7 +33,7 @@ const App = () => {
   };
 
   const updateSearch = (event) => {
-    setSearch(event.target.value);
+    setSearch(event.target.value.toLowerCase());
   };
 
   const getSearch = (event) => {
@@ -42,19 +44,12 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* Form.. */}
       <Header />
-      <form onSubmit={getSearch} className="search-form">
-        <input
-          className="search-bar"
-          value={search}
-          onChange={updateSearch}
-        ></input>
-        <button className="search-button" type="submit">
-          Search
-        </button>
-      </form>
+
+      <Form getSearch={getSearch} updateSearch={updateSearch} search={search} />
+
       <Main currentRecipes={recipes} />
+
       {/* Recipes.. */}
 
       {/* {recipes.map((recipe) => (
