@@ -15,21 +15,24 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
 
+  const [firstRender, setFirstRender] = useState(true);
+
   useEffect(() => {
-    console.log(recipes.length);
     getRecipes();
   }, [query]);
 
   const getRecipes = async () => {
-    let newQuery = query + "&to=100";
-    const response = await fetch(
-      `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
-    );
-    const data = await response.json();
-    setRecipes(data.hits);
-
-    // For testing..
-    console.log(recipes);
+    if (firstRender === false) {
+      // 23/09 change - search for the first 100 results where "cuisineType" is "japanese"
+      let newQuery = query + "&to=100&cuisineType=japanese";
+      const response = await fetch(
+        `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      );
+      const data = await response.json();
+      setRecipes(data.hits);
+    } else {
+      setFirstRender(false);
+    }
   };
 
   const updateSearch = (event) => {
