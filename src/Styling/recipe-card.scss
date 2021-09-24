@@ -67,30 +67,18 @@
       sans-serif;
   }
 
-  // .dish-type {
-  //   display: flex;
-  //   justify-self: center;
-  //   align-self: center;
-
-  //   text-align: center;
-
-  //   margin-top: 15px;
-
-  //   font-size: 0.8em;
-  //   font-weight: 200;
-  // }
-
   .recipe-link {
     @include flex-center-SELF;
     text-align: center;
-
     text-decoration: none;
     cursor: pointer;
     color: black;
-
     font-weight: 400;
-
     margin-bottom: 10px;
+    &:hover {
+      transform: translateY(-5px);
+      color: $off-white;
+    }
   }
 
   .recipe-img {
@@ -105,14 +93,3 @@
     box-shadow: 12px 29px 81px 0px rgba(0, 0, 0, 0.55);
   }
 }
-
-// @media (min-width: 768px) {
-//   .recipes-card {
-//     &:hover {
-//       transition: ease-in-out 0.2s;
-
-//       width: 400px;
-//       transform: scale(1.1);
-//     }
-//   }
-// }
