@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import RecipeCard from "./RecipeCard";
 
 // content variable that will change depending on the functions in the component
 let content;
 
 const Main = (props) => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   if (props.currentRecipes.length > 0) {
     content = props.currentRecipes
       // * Chained filter with map no longer needed for functionality as "japanese" is now a parameter in the api search. But is a good example for the future

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const RecipeCard = (props) => {
-  console.log("Recipe not working");
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
+  // console.log("Recipe not working");
   return (
-    <div className="recipes-card">
+    <div data-aos="fade-up" className="recipes-card">
       <img className="recipe-img" src={props.imgSrc} alt=""></img>
 
       {/* <h5 className="dish-type">

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { MdKeyboardArrowUp } from "react-icons/md";
+
 import "../Styling/App.scss";
 
 import Main from "./Main";
@@ -91,7 +93,6 @@ const App = () => {
           <MdKeyboardArrowUp />
         </button>
       )}
-      {/* &#8679; is used to create the upward arrow */}
     </div>
   );
 };
