@@ -4,8 +4,9 @@ let content;
 
 const Main = (props) => {
   if (props.currentRecipes.length > 0) {
-    content = props.currentRecipes.map((recipe, index) => {
-      if (recipe.recipe.cuisineType.includes("japanese")) {
+    content = props.currentRecipes
+      .filter((recipe) => recipe.recipe.cuisineType.includes("japanese"))
+      .map((recipe, index) => {
         return (
           <>
             <div className="recipes-container">
@@ -13,6 +14,7 @@ const Main = (props) => {
                 {recipe.recipe.label}
               </h3>
               <p>Total Time: {recipe.recipe.totalTime} </p>
+              <p>{recipe.recipe.cuisineType}</p>
               <img src={recipe.recipe.image} alt=""></img>
               <a
                 href={recipe.recipe.url}
@@ -24,10 +26,11 @@ const Main = (props) => {
             </div>
           </>
         );
-      } else {
-        return null;
-      }
-    });
+
+        // else {
+        //   return null;
+        // }
+      });
   } else {
     content = (
       <div>
