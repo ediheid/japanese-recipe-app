@@ -11,13 +11,15 @@ const Main = (props) => {
       // .filter((recipe) => recipe.recipe.cuisineType.includes("japanese"))
       .map((recipe, index) => {
         return (
-          <RecipeCard
-            index={index}
-            recipeLabel={recipe.recipe.label}
-            imgSrc={recipe.recipe.image}
-            recipeUrl={recipe.recipe.url}
-            dishType={recipe.recipe.dishType}
-          />
+          <>
+            <RecipeCard
+              index={index}
+              recipeLabel={recipe.recipe.label}
+              imgSrc={recipe.recipe.image}
+              recipeUrl={recipe.recipe.url}
+              dishType={recipe.recipe.dishType}
+            />
+          </>
         );
       });
   } else {
