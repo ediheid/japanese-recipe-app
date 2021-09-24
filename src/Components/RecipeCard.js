@@ -5,12 +5,13 @@ const RecipeCard = (props) => {
   return (
     <div className="recipes-card">
       <img className="recipe-img" src={props.imgSrc} alt=""></img>
+
+      {/* <h5 className="dish-type">
+        Dish Type: <br /> {props.dishType}
+      </h5> */}
       <h3 className="recipe-name" key={props.index}>
         {props.recipeLabel}
       </h3>
-      <h5 className="dish-type">
-        Dish Type: <br /> {props.dishType}
-      </h5>
 
       <a
         className="recipe-link"
