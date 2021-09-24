@@ -1,5 +1,7 @@
 import React from "react";
+import RecipeCard from "./RecipeCard";
 
+// content variable that will change depending on the functions in the component
 let content;
 
 const Main = (props) => {
@@ -9,28 +11,13 @@ const Main = (props) => {
       // .filter((recipe) => recipe.recipe.cuisineType.includes("japanese"))
       .map((recipe, index) => {
         return (
-          <>
-            <div className="recipes-container">
-              <h3 className="recipe-name" key={index}>
-                {recipe.recipe.label}
-              </h3>
-              <p>Total Time: {recipe.recipe.totalTime} </p>
-              <p>{recipe.recipe.cuisineType}</p>
-              <img src={recipe.recipe.image} alt=""></img>
-              <a
-                href={recipe.recipe.url}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Click for recipe
-              </a>
-            </div>
-          </>
+          <RecipeCard
+            index={index}
+            recipeLabel={recipe.recipe.label}
+            imgSrc={recipe.recipe.image}
+            recipeUrl={recipe.recipe.url}
+          />
         );
-
-        // else {
-        //   return null;
-        // }
       });
   } else {
     content = (
