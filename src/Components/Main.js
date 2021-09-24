@@ -5,7 +5,8 @@ let content;
 const Main = (props) => {
   if (props.currentRecipes.length > 0) {
     content = props.currentRecipes
-      .filter((recipe) => recipe.recipe.cuisineType.includes("japanese"))
+      // * Chained filter with map no longer needed for functionality as "japanese" is now a parameter in the api search. But is a good example for the future
+      // .filter((recipe) => recipe.recipe.cuisineType.includes("japanese"))
       .map((recipe, index) => {
         return (
           <>
