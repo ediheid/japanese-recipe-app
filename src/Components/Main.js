@@ -3,9 +3,10 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import RecipeCard from "./RecipeCard";
 
-// content variable that will change depending on the functions in the component
+// ? content variable that will change depending on the functions in the component
 let content;
 
+// ? Component
 const Main = (props) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -23,7 +24,6 @@ const Main = (props) => {
               recipeLabel={recipe.recipe.label}
               imgSrc={recipe.recipe.image}
               recipeUrl={recipe.recipe.url}
-              dishType={recipe.recipe.dishType}
             />
           </>
         );
