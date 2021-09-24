@@ -4,13 +4,4 @@
 @import "header.scss";
 @import "form.scss";
 @import "main.scss";
-
-.recipes-container {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-  background-color: lightgoldenrodyellow;
-}
+@import "recipe-card.scss";

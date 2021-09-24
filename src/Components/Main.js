@@ -16,23 +16,21 @@ const Main = (props) => {
             recipeLabel={recipe.recipe.label}
             imgSrc={recipe.recipe.image}
             recipeUrl={recipe.recipe.url}
+            dishType={recipe.recipe.dishType}
           />
         );
       });
   } else {
     content = (
-      <div>
+      // ! Come back to styling after recipe cards for both mobile and laptop
+      <div className="main-landing-view-container">
         <div className="circle-with-text">
           <div className="circle-text">Your food portal to Japan!</div>
         </div>
       </div>
     );
   }
-  return (
-    <div className="main-container">
-      <div>{content}</div>
-    </div>
-  );
+  return <div className="main-container">{content}</div>;
 };
 
 export default Main;
