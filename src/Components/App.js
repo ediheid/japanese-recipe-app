@@ -42,39 +42,24 @@ const App = () => {
     setSearch("");
   };
 
-  // const clickSeeAllRecipes = (event) => {
-  //   getRecipes(event.target);
-  //   recipes.map((recipe) => (
-  //     <Recipe
-  //       key={recipe.recipe.label}
-  //       title={recipe.recipe.label}
-  //       time={recipe.recipe.totalTime}
-  //       image={recipe.recipe.image}
-  //       ingredients={recipe.recipe.ingredients}
-  //     />
-  //   ));
-  // };
-  // console.log(clickSeeAllRecipes);
+  const allRecipesButton = (event) => {
+    event.preventDefault();
+    setQuery("japanese");
+  };
 
   return (
     <div className="App">
       <Header />
 
-      <Form getSearch={getSearch} updateSearch={updateSearch} search={search} />
+      <Form
+        getSearch={getSearch}
+        updateSearch={updateSearch}
+        search={search}
+        currentRecipes={recipes}
+        allRecipesButton={allRecipesButton}
+      />
 
       <Main currentRecipes={recipes} />
-
-      {/* Recipes.. */}
-
-      {/* {recipes.map((recipe) => (
-        <Recipe
-          key={recipe.recipe.label}
-          title={recipe.recipe.label}
-          time={recipe.recipe.totalTime}
-          image={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-        />
-      ))} */}
     </div>
   );
 };

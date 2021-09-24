@@ -14,9 +14,12 @@ const Form = (props) => {
           Search
         </button>
       </form>
+
       <div className="extra-search-function">
         <div className="buttons-box">
-          <button className="extra-buttons">See all recipes</button>
+          <button onClick={props.allRecipesButton} className="extra-buttons">
+            See all recipes
+          </button>
           <button className="extra-buttons">Feeling Lucky!</button>
         </div>
       </div>
