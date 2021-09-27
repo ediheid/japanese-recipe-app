@@ -6,3 +6,8 @@
 @import "main.scss";
 @import "recipe-card.scss";
 @import "back-to-top.scss";
+
+.form-component-container {
+  display: flex;
+  justify-content: center;
+}

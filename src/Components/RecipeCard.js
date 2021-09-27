@@ -4,16 +4,14 @@ import "aos/dist/aos.css";
 
 const RecipeCard = (props) => {
   useEffect(() => {
-    Aos.init({ duration: 500 });
+    Aos.init({ duration: 1000 });
   }, []);
 
   return (
-    <div data-aos="fade-up" className="recipes-card">
+    <div data-aos="fade-up" className="recipes-card" key={props.index}>
       <img className="recipe-img" src={props.imgSrc} alt=""></img>
 
-      <h3 className="recipe-name" key={props.index}>
-        {props.recipeLabel}
-      </h3>
+      <h3 className="recipe-name">{props.recipeLabel}</h3>
 
       <a
         className="recipe-link"

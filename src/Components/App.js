@@ -29,7 +29,9 @@ const App = () => {
   const getRecipes = async () => {
     if (firstRender === false) {
       // 23/09 change - search for the first 100 results where "cuisineType" is "japanese"
+
       let newQuery = query + "&to=100&cuisineType=japanese";
+
       const response = await fetch(
         `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
       );
@@ -67,33 +69,42 @@ const App = () => {
     });
   }, []);
 
-  // This function will scroll the window to the top
+  // ? This function will scroll the window to the top
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  // ? Clear Search on logo click function
+  const clearOnClick = () => {
+    setRecipes([]);
   };
 
   // ? JSX return
 
   return (
-    <div className="App">
-      <Header />
+    <>
+      <div className="App">
+        <Header resetPage={clearOnClick} />
 
-      <Form
-        getSearch={getSearch}
-        updateSearch={updateSearch}
-        search={search}
-        currentRecipes={recipes}
-        allRecipesButton={allRecipesButton}
-      />
+        <div className="form-component-container">
+          <Form
+            getSearch={getSearch}
+            updateSearch={updateSearch}
+            search={search}
+            currentRecipes={recipes}
+            allRecipesButton={allRecipesButton}
+          />
+        </div>
 
-      <Main currentRecipes={recipes} />
+        <Main currentRecipes={recipes} />
 
-      {showButton && (
-        <button onClick={scrollToTop} className="back-to-top">
-          <MdKeyboardArrowUp />
-        </button>
-      )}
-    </div>
+        {showButton && (
+          <button onClick={scrollToTop} className="back-to-top">
+            <MdKeyboardArrowUp />
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

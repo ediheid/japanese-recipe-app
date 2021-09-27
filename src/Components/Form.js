@@ -4,12 +4,14 @@ const Form = (props) => {
   return (
     <div className="form-container">
       <form onSubmit={props.getSearch} className="search-form">
+        {/* <div> */}
         <input
           className="search-bar"
           value={props.search}
           onChange={props.updateSearch}
           placeholder="Know what you want?"
-        ></input>
+        />
+        {/* </div> */}
         <button className="search-button" type="submit">
           Search
         </button>
@@ -20,7 +22,7 @@ const Form = (props) => {
           <button onClick={props.allRecipesButton} className="extra-buttons">
             See all recipes
           </button>
-          <button className="extra-buttons">Feeling Lucky!</button>
+          {/* <button className="extra-buttons">Feeling Lucky!</button> */}
         </div>
       </div>
     </div>
