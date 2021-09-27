@@ -30,9 +30,19 @@ const Main = (props) => {
           </>
         );
       });
-  } else {
+  }
+
+  //!! Come back to logic for 'no matches found'
+  // else if (
+  //   props.currentRecipes.length > 0 &&
+  //   props.currentRecipes !== props.updateSearch.value
+  // )
+
+  // {
+  //   console.log("no matches found!");
+  // }
+  else {
     content = (
-      // ! Come back to styling after recipe cards for both mobile and laptop
       <div className="main-landing-view-container">
         <div data-aos="fade-up-right" className="circle-with-text">
           <div className="circle-text">Your food portal to Japan!</div>

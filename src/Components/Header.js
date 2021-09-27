@@ -16,9 +16,8 @@ const Header = (props) => {
         ></img>
       </div>
 
-      <h4 onClick={props.resetPage} className="sub-heading">
-        (“to eat and receive”)
-      </h4>
+      <h4 className="sub-heading">(“to eat and receive”)</h4>
+      <div className="hover-circle"></div>
     </div>
   );
 };

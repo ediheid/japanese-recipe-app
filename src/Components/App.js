@@ -96,7 +96,11 @@ const App = () => {
           />
         </div>
 
-        <Main currentRecipes={recipes} />
+        <Main
+          currentRecipes={recipes}
+          search={search}
+          updateSearch={updateSearch}
+        />
 
         {showButton && (
           <button onClick={scrollToTop} className="back-to-top">
