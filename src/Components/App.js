@@ -12,7 +12,7 @@ const App = () => {
   // ? State Hooks..
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState({ text: "", isVegan: false });
   const [firstRender, setFirstRender] = useState(true);
   const [showButton, setShowButton] = useState(false);
 
@@ -29,14 +29,24 @@ const App = () => {
   const getRecipes = async () => {
     if (firstRender === false) {
       // 23/09 change - search for the first 100 results where "cuisineType" is "japanese"
+      if (query.isVegan === false) {
+        let newQuery = query + "&to=100&cuisineType=japanese";
 
-      let newQuery = query + "&to=100&cuisineType=japanese";
+        const response = await fetch(
+          `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+        );
+        const data = await response.json();
+        setRecipes(data.hits);
+      } else {
+        let newQuery =
+          query + "&to=100&cuisineType=japanese&healthLabels=Dairy-Free";
 
-      const response = await fetch(
-        `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
-      );
-      const data = await response.json();
-      setRecipes(data.hits);
+        const response = await fetch(
+          `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+        );
+        const data = await response.json();
+        setRecipes(data.hits);
+      }
     } else {
       setFirstRender(false);
     }
@@ -46,10 +56,16 @@ const App = () => {
     setSearch(event.target.value.toLowerCase());
   };
 
-  const getSearch = (event) => {
+  const getSearch = (event, type) => {
     event.preventDefault();
-    setQuery(search);
-    setSearch("");
+
+    if (type === "standard") {
+      setQuery({ text: "search", isVegan: false });
+      setSearch("");
+    } else {
+      setQuery({ text: "search", isVegan: true });
+      setSearch("");
+    }
   };
 
   const allRecipesButton = (event) => {

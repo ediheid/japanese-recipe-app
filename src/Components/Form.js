@@ -1,9 +1,17 @@
 import React from "react";
 
 const Form = (props) => {
+  const getNewSearch = (event) => {
+    props.getSearch(event, "standard");
+  };
+
+  const getNewVeganSearch = (event) => {
+    props.getSearch(event, "vegan");
+  };
+
   return (
     <div className="form-container">
-      <form onSubmit={props.getSearch} className="search-form">
+      <form className="search-form">
         {/* <div> */}
         <input
           className="search-bar"
@@ -11,8 +19,10 @@ const Form = (props) => {
           onChange={props.updateSearch}
           placeholder="Know what you want?"
         />
+
+        <button onClick={getNewVeganSearch}>Vegan</button>
         {/* </div> */}
-        <button className="search-button" type="submit">
+        <button onClick={getNewSearch} className="search-button" type="submit">
           Search
         </button>
       </form>
