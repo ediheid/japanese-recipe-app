@@ -12,7 +12,11 @@ const App = () => {
   // ? State Hooks..
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState({ text: "", isVegan: false });
+  const [query, setQuery] = useState({
+    text: "",
+    isVegan: false,
+    isVegetarian: false,
+  });
   const [firstRender, setFirstRender] = useState(true);
   const [showButton, setShowButton] = useState(false);
 
@@ -30,16 +34,30 @@ const App = () => {
     if (firstRender === false) {
       // 23/09 change - search for the first 100 results where "cuisineType" is "japanese"
       if (query.isVegan === false) {
-        let newQuery = query + "&to=100&cuisineType=japanese";
+        let newQuery = query.text + "&to=100&cuisineType=japanese";
 
         const response = await fetch(
           `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
         );
         const data = await response.json();
         setRecipes(data.hits);
-      } else {
+      }
+
+      // Vegetarian
+      else if (query.isVegetarian === true) {
         let newQuery =
-          query + "&to=100&cuisineType=japanese&healthLabels=Dairy-Free";
+          query.text + "&to=100&cuisineType=japanese&health=vegetarian";
+
+        const response = await fetch(
+          `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+        );
+        const data = await response.json();
+        setRecipes(data.hits);
+      }
+
+      // Search for the first 100 results that are "japanese", AND "vegetarian"
+      else {
+        let newQuery = query.text + "&to=100&cuisineType=japanese&health=vegan";
 
         const response = await fetch(
           `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
@@ -60,17 +78,20 @@ const App = () => {
     event.preventDefault();
 
     if (type === "standard") {
-      setQuery({ text: "search", isVegan: false });
+      setQuery({ text: search, isVegan: false });
+      setSearch("");
+    } else if (type === "vegetarian") {
+      setQuery({ text: search, isVegetarian: true });
       setSearch("");
     } else {
-      setQuery({ text: "search", isVegan: true });
+      setQuery({ text: search, isVegan: true });
       setSearch("");
     }
   };
 
   const allRecipesButton = (event) => {
     event.preventDefault();
-    setQuery("japanese");
+    setQuery({ text: "japanese", isVegan: false });
   };
 
   // ? Back to Top Functionality
