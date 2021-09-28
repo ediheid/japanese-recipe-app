@@ -1,15 +1,18 @@
+// Dependencies
 import React, { useEffect, useState } from "react";
-
 import { MdKeyboardArrowUp } from "react-icons/md";
 
+// Sass
 import "../Styling/App.scss";
 
+// Imported Components
 import Main from "./Main";
 import Header from "./Header";
 import Form from "./Form";
 
+// App Component
 const App = () => {
-  // ? State Hooks..
+  //  State Hooks..
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState({
@@ -20,18 +23,22 @@ const App = () => {
   const [firstRender, setFirstRender] = useState(true);
   const [showButton, setShowButton] = useState(false);
 
-  // ? API Functionality
+  //  API ID and Key
   const APP_ID = "aa176644";
   const APP_KEY = "26b28d399ed74457c2a5e5dcd1ae6e41";
 
   // const exampleRequest = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
+  // Use effect to get recipes only once query has been updated on first render
   useEffect(() => {
     getRecipes();
   }, [query]);
 
+  // Fetch requests depending on query..
   const getRecipes = async () => {
+    // Stops request from fetching on every render..
     if (firstRender === false) {
+      // Standard search condition for ALL Japanese recipes..
       // 23/09 change - search for the first 100 results where "cuisineType" is "japanese"
       if (query.isVegan === false) {
         let newQuery = query.text + "&to=100&cuisineType=japanese";
@@ -55,7 +62,7 @@ const App = () => {
         setRecipes(data.hits);
       }
 
-      // Search for the first 100 results that are "japanese", AND "vegetarian"
+      // Vegan
       else {
         let newQuery = query.text + "&to=100&cuisineType=japanese&health=vegan";
 
@@ -70,32 +77,39 @@ const App = () => {
     }
   };
 
+  // Collect what used is searching for from input value
   const updateSearch = (event) => {
     setSearch(event.target.value.toLowerCase());
   };
 
+  // Set the query to the users 'searched' dish and allow user to search via the following 'type' conditions: "standard", "vegan" or "vegetarian" - then reset search string to empty
   const getSearch = (event, type) => {
     event.preventDefault();
 
+    // search all
     if (type === "standard") {
       setQuery({ text: search, isVegan: false });
       setSearch("");
-    } else if (type === "vegetarian") {
+    }
+    // vegetarian
+    else if (type === "vegetarian") {
       setQuery({ text: search, isVegetarian: true });
       setSearch("");
-    } else {
+    }
+    // vegan
+    else {
       setQuery({ text: search, isVegan: true });
       setSearch("");
     }
   };
 
+  // OnClick function for "all recipes" button. Resets query to just "japanese" in the string and defaults back to false for other parameters
   const allRecipesButton = (event) => {
     event.preventDefault();
-    setQuery({ text: "japanese", isVegan: false });
+    setQuery({ text: "japanese", isVegan: false, isVegetarian: false });
   };
 
-  // ? Back to Top Functionality
-
+  //  Back to Top useEffect (imported dependency)
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
@@ -106,18 +120,17 @@ const App = () => {
     });
   }, []);
 
-  // ? This function will scroll the window to the top
+  //  This function will scroll the window to the top (imported dependency)
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
-  // ? Clear Search on logo click function
+  //  Reset recipes so main page renders again on click - to be used when user clicks the logo
   const clearOnClick = () => {
     setRecipes([]);
   };
 
-  // ? JSX return
-
+  //  JSX
   return (
     <>
       <div className="App">
