@@ -3,15 +3,21 @@ import { BiFilterAlt } from "react-icons/bi";
 
 const Form = (props) => {
   const getNewSearch = (event) => {
-    props.getSearch(event, "standard");
+    if (props.search.length > 0) {
+      props.getSearch(event, "standard");
+    }
   };
 
   const getNewVeganSearch = (event) => {
-    props.getSearch(event, "vegan");
+    if (props.search.length > 0) {
+      props.getSearch(event, "vegan");
+    }
   };
 
   const getNewVegetarianSearch = (event) => {
-    props.getSearch(event, "vegetarian");
+    if (props.search.length > 0) {
+      props.getSearch(event, "vegetarian");
+    }
   };
 
   return (
