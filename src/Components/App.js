@@ -10,6 +10,8 @@ import Main from "./Main";
 import Header from "./Header";
 import Form from "./Form";
 
+require('dotenv').config();
+
 // App Component
 const App = () => {
   //  State Hooks..
@@ -24,8 +26,8 @@ const App = () => {
   const [showButton, setShowButton] = useState(false);
 
   //  API ID and Key
-  const APP_ID = "aa176644";
-  const APP_KEY = "26b28d399ed74457c2a5e5dcd1ae6e41";
+  const APP_ID = process.env.REACT_APP_API_ID;
+  const APP_KEY = process.env.REACT_APP_API_KEY;
 
   // const exampleRequest = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
