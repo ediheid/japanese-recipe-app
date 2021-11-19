@@ -32,6 +32,12 @@ const Main = (props) => {
       });
   }
 
+  // console.log(props.currentRecipes);
+
+  // if (props.currentRecipes.index.length < 0) {
+  //   console.log("!!!!!!! NO CONTENT!");
+  // }
+
   //!! Come back to logic for 'no matches found'
   // else if (
   //   props.currentRecipes.length > 0 &&

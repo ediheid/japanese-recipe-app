@@ -1,25 +1,28 @@
 // ? Mobile
 
 .circle-with-text {
-  position: absolute;
-  left: 5%;
-  top: 65%;
+  display: none;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  background-color: $redish;
-  border-radius: 50%;
+  // position: absolute;
+  // left: 5%;
+  // top: 65%;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // width: 200px;
+  // height: 200px;
+  // // background-color: $redish;
+  // // border-radius: 50%;
 
   // margin: 20px;
 
   .circle-text {
-    width: 80%;
-    text-align: center;
-    transform: rotate(-10deg);
-    font-size: 2em;
+    display: none;
+    // width: 80%;
+    // text-align: center;
+    // transform: rotate(-10deg);
+    // font-size: 2em;
   }
 }
 
@@ -37,11 +40,12 @@
     width: 300px;
   }
 
-  .circle-with-text {
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 10%;
-    z-index: 1;
-  }
+  // .circle-with-text {
+
+  //   width: 300px;
+  //   height: 300px;
+  //   top: 50%;
+  //   left: 10%;
+  //   z-index: 1;
+  // }
 }

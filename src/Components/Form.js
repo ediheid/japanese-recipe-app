@@ -39,25 +39,29 @@ const Form = (props) => {
             placeholder="Know what you want?"
           />
 
-          {/* Dropdown/'filter' container */}
-          <div className="dropdown">
+          {/* // !!! Dropdown/'filter' container */}
+          {/* <div className="dropdown">
             <span className="filter-button">
               <BiFilterAlt />
-            </span>
+            </span> */}
 
-            {/* Dropdown content */}
-            <div className="dropdown-content">
-              {/* vegan */}
+          {/* // !!! Dropdown content */}
 
-              <button onClick={getNewVeganSearch} className="veg-button">
-                Vegan
-              </button>
-              {/* vegetarian */}
-              <button onClick={getNewVegetarianSearch} className="veg-button">
-                Vegetarian
-              </button>
-            </div>
+          <div className="dropdown-content">
+            {/* vegan */}
+
+            {/* <button onClick={getNewVeganSearch} className="veg-button">
+              Vegan
+            </button> */}
+            {/* vegetarian */}
+            {/* <button onClick={getNewVegetarianSearch} className="veg-button">
+              Vegetarian
+            </button> */}
           </div>
+
+          {/* // !!! End dropdown content */}
+          {/* </div> */}
+          {/* // ! Filter closing div above */}
         </div>
 
         {/* Regular search */}
