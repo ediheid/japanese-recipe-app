@@ -10,6 +10,8 @@ import Main from "./Main";
 import Header from "./Header";
 import Form from "./Form";
 
+require('dotenv').config();
+
 // App Component
 const App = () => {
   //  State Hooks..
