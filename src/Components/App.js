@@ -10,7 +10,7 @@ import Main from "./Main";
 import Header from "./Header";
 import Form from "./Form";
 
-require('dotenv').config();
+require("dotenv").config();
 
 // App Component
 const App = () => {
@@ -52,28 +52,29 @@ const App = () => {
         setRecipes(data.hits);
       }
 
+      // ? Commented out dropdown code - removed styling and jsx for extra functionality - to come back to and work on a new filter option
       // Vegetarian
-      else if (query.isVegetarian === true) {
-        let newQuery =
-          query.text + "&to=100&cuisineType=japanese&health=vegetarian";
+      // else if (query.isVegetarian === true) {
+      //   let newQuery =
+      //     query.text + "&to=100&cuisineType=japanese&health=vegetarian";
 
-        const response = await fetch(
-          `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
-        );
-        const data = await response.json();
-        setRecipes(data.hits);
-      }
+      //   const response = await fetch(
+      //     `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      //   );
+      //   const data = await response.json();
+      //   setRecipes(data.hits);
+      // }
 
       // Vegan
-      else {
-        let newQuery = query.text + "&to=100&cuisineType=japanese&health=vegan";
+      // else {
+      //   let newQuery = query.text + "&to=100&cuisineType=japanese&health=vegan";
 
-        const response = await fetch(
-          `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
-        );
-        const data = await response.json();
-        setRecipes(data.hits);
-      }
+      //   const response = await fetch(
+      //     `https://api.edamam.com/search?q=${newQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      //   );
+      //   const data = await response.json();
+      //   setRecipes(data.hits);
+      // }
     } else {
       setFirstRender(false);
     }
@@ -93,16 +94,17 @@ const App = () => {
       setQuery({ text: search, isVegan: false });
       setSearch("");
     }
-    // vegetarian
-    else if (type === "vegetarian") {
-      setQuery({ text: search, isVegetarian: true });
-      setSearch("");
-    }
-    // vegan
-    else {
-      setQuery({ text: search, isVegan: true });
-      setSearch("");
-    }
+    // ? Commented out dropdown code - removed styling and jsx for extra functionality - to come back to and work on a new filter option
+    // // vegetarian
+    // else if (type === "vegetarian") {
+    //   setQuery({ text: search, isVegetarian: true });
+    //   setSearch("");
+    // }
+    // // vegan
+    // else {
+    //   setQuery({ text: search, isVegan: true });
+    //   setSearch("");
+    // }
   };
 
   // OnClick function for "all recipes" button. Resets query to just "japanese" in the string and defaults back to false for other parameters

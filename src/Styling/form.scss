@@ -26,92 +26,13 @@
 
 .search-bar {
   background: transparent;
-  // width: 50%;
-  // border-radius: 0.5rem;
-  // border: 0.5px solid $light-grey;
-  // margin-right: 20px;
-  // padding: 8px 20px;
-  border: none;
-
-  outline: none;
-}
-textarea:focus,
-input:focus {
-  outline: none;
-}
-
-.input-container {
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  // flex-wrap: wrap;
-
-  width: 70%;
-
-  font-size: 15px;
-
+  width: 50%;
   border-radius: 0.5rem;
   border: 0.5px solid $light-grey;
-  margin: 5px;
-  padding: 8px 15px 8px 15px;
-}
+  margin-right: 20px;
+  padding: 8px 20px;
 
-.input-container:focus-within {
-  border: $pale-orange 2px solid;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 100%;
-  top: 0;
-
-  border-radius: 0.5rem;
-  min-width: 80px;
-  background-color: $off-white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  // margin-right: 5px;
-
-  // z-index: 1;
-}
-
-// @media (max-width: 600px) {
-//   .dropdown-content {
-//     left: 100%;
-//   }
-// }
-
-.dropdown {
-  position: relative;
-  display: flex;
-}
-
-.filter-button {
-  font-size: 1.5rem;
-  background: transparent;
-  border: none;
-  margin-top: 4px;
-  color: $redish;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.veg-button {
-  background-color: rgb(199, 194, 194);
-
-  border: none;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 0.3rem;
-  margin-bottom: 5px;
-
-  &:hover {
-    background-color: $light-purple;
-    transform: scale(1.1);
-  }
+  font-size: 15px;
 }
 
 .search-button {

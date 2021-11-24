@@ -29,40 +29,13 @@ const Form = (props) => {
     <div className="form-container">
       {/* Form */}
       <form className="search-form">
-        {/* Created input container to emulate input field - input and buttons inside this fake input.. */}
-        <div className="input-container">
-          {/* input */}
-          <input
-            className="search-bar"
-            value={props.search}
-            onChange={props.updateSearch}
-            placeholder="Know what you want?"
-          />
-
-          {/* // !!! Dropdown/'filter' container */}
-          {/* <div className="dropdown">
-            <span className="filter-button">
-              <BiFilterAlt />
-            </span> */}
-
-          {/* // !!! Dropdown content */}
-
-          <div className="dropdown-content">
-            {/* vegan */}
-
-            {/* <button onClick={getNewVeganSearch} className="veg-button">
-              Vegan
-            </button> */}
-            {/* vegetarian */}
-            {/* <button onClick={getNewVegetarianSearch} className="veg-button">
-              Vegetarian
-            </button> */}
-          </div>
-
-          {/* // !!! End dropdown content */}
-          {/* </div> */}
-          {/* // ! Filter closing div above */}
-        </div>
+        {/* input */}
+        <input
+          className="search-bar"
+          value={props.search}
+          onChange={props.updateSearch}
+          placeholder="Know what you want?"
+        />
 
         {/* Regular search */}
         <button onClick={getNewSearch} className="search-button" type="submit">

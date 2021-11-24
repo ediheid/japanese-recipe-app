@@ -30,24 +30,9 @@ const Main = (props) => {
           </>
         );
       });
-  }
 
-  // console.log(props.currentRecipes);
-
-  // if (props.currentRecipes.index.length < 0) {
-  //   console.log("!!!!!!! NO CONTENT!");
-  // }
-
-  //!! Come back to logic for 'no matches found'
-  // else if (
-  //   props.currentRecipes.length > 0 &&
-  //   props.currentRecipes !== props.updateSearch.value
-  // )
-
-  // {
-  //   console.log("no matches found!");
-  // }
-  else {
+    console.log(props.currentRecipes);
+  } else {
     content = (
       <div className="main-landing-view-container">
         <div data-aos="fade-up-right" className="circle-with-text">
