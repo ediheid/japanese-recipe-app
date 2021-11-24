@@ -1,7 +1,7 @@
 # A simple React App using a recipe API to create a Japanese Recipe search site
 
 
-## run npm install to install all dependencies
+### run npm install to install all dependencies
 
 ### `npm start`
 
