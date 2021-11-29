@@ -32,7 +32,7 @@
 
   padding: 8px 20px;
 
-  font-size: 12px;
+  font-size: 10px;
 
   margin-right: 1rem;
 
@@ -42,7 +42,7 @@
 
   &:focus {
     border: 1px solid red;
-    outline: 1px solid red;
+    font-size: 10px;
   }
 }
 
