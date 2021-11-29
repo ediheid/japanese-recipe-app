@@ -34,7 +34,7 @@ const Form = (props) => {
           className="search-bar"
           value={props.search}
           onChange={props.updateSearch}
-          placeholder="Know what you want?"
+          placeholder="e.g. Miso"
         />
 
         {/* Regular search */}

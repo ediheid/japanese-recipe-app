@@ -29,10 +29,21 @@
   width: 50%;
   border-radius: 0.5rem;
   border: 0.5px solid $light-grey;
-  margin-right: 20px;
+
   padding: 8px 20px;
 
-  font-size: 15px;
+  font-size: 12px;
+
+  margin-right: 1rem;
+
+  &::placeholder {
+    font-style: italic;
+  }
+
+  &:focus {
+    border: 1px solid red;
+    outline: 1px solid red;
+  }
 }
 
 .search-button {
