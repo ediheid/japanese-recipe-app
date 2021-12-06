@@ -32,17 +32,12 @@
 
   padding: 8px 20px;
 
-  font-size: 10px;
+  font-size: 18px;
 
   margin-right: 1rem;
 
   &::placeholder {
     font-style: italic;
-  }
-
-  &:focus {
-    // border: 1px solid red;
-    font-size: 10px;
   }
 }
 
